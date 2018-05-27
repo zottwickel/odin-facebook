@@ -14,6 +14,14 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+
+# NOTE:
+# The below "default" hash has a postgres user from my development machine that
+# I could honestly care less if people found out. The username/password PostgreSQL
+# that are related to this app that run on my local machine will be deleted as soon
+# as this demonstration app is pushed to final production.
+
+
 default: &default
   host: localhost
   adapter: postgresql
