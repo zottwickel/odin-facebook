@@ -9,6 +9,13 @@
   </head>
 
   <body>
+  	<% if flash[:success] %>
+  		<div class="success"><%= flash[:success] %></div>
+  	<% elsif flash[:warning] %>
+  		<div class="warning"><%= flash[:warning] %></div>
+  	<% elsif flash[:info] %>
+  		<div class="info"><%= flash[:info] %></div>
+  	<% end %>
     <%= yield %>
   </body>
 </html>
