@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Use Devise for streamlined authentications
 gem 'devise', '~> 4'
+# Use Jquery-rails for jQuery goodness
+gem 'jquery-rails', '>= 4.3.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

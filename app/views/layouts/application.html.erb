@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OdinFacebook</title>
-    <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= render 'layouts/defaults' %>
   </head>
-
   <body>
-  	<% if flash[:notice] %>
-  		<div class="notice"><%= flash[:notice] %></div>
-  	<% elsif flash[:alert] %>
-  		<div class="alert"><%= flash[:alert] %></div>
-  	<% end %>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/flash' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
