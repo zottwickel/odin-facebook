@@ -1,14 +1,15 @@
 <% provide(title: "Password Reset") %>
 <section class="hero is-light is-bold">
   <div class="hero-body">
-		<h2>Forgot your password?</h2>
+		<h2 class="title">Forgot your password?</h2>
 
 		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
 		  <%= devise_error_messages! %>
 
 		  <div class="field">
-		    <%= f.label :email %><br />
-		    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input is-info left-field" %>
+		    <%= f.label :email, class: "label" %>
+		    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "e.g. john.doe@gmail.com", class: "input is-info left-field" %>
 		  </div>
 
 		  <div class="control">

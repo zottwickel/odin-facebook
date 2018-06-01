@@ -2,8 +2,22 @@
 
 #logo {
 	font-size: 1.25rem;
+	font-weight: bold;
 }
 
 .left-field {
 	width: 38%;
+}
+
+.is-vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+#namelink {
+	color: #0C66A1;
+}
+
+#namelink:hover {
+	color: #143873;
 }

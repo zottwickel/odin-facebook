@@ -8,7 +8,7 @@
 				<%= devise_error_messages! %>
 			  <div class="field">
 			    <%= f.label :email, class: "label" %>
-			    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "input is-info left-field" %>
+			    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Your Email Here", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "input is-info left-field" %>
 			  </div>
 
 			  <div class="control">

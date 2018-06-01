@@ -1,3 +1,10 @@
-<li>
-	<%= link_to user.name, user %>
+<li class="box">
+	<div class="subtitle">
+		<div class="is-vertical-center">
+			<%= gravatar_for(user) %>
+			<div class="section">
+				<%= link_to user.name, user, id: "namelink" %> | <%= user.email %>
+			</div>
+		</div>
+	</div>
 </li>
