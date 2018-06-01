@@ -11,6 +11,7 @@
 		<div class="navbar-start"></div>
 	  <div class="navbar-end">
 	  	<% if signed_in? %>
+	  	<%= link_to "All People", users_path, class: "navbar-item" %>
 		  <%= link_to "News Feed", root_path, class: "navbar-item" %>
 		  <%= link_to "Friends", root_path, class: "navbar-item" %>
 		  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
