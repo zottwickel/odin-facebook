@@ -11,13 +11,16 @@
 		<div class="navbar-start"></div>
 	  <div class="navbar-end">
 	  	<% if signed_in? %>
-	  	<%= link_to "All People", users_path, class: "navbar-item" %>
-		  <%= link_to "News Feed", root_path, class: "navbar-item" %>
-		  <%= link_to "Friends", root_path, class: "navbar-item" %>
-		  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+		  	<%= link_to "All People", users_path, class: "navbar-item" %>
+			  <%= link_to "News Feed", root_path, class: "navbar-item" %>
+			  <%= link_to "Friends", root_path, class: "navbar-item" %>
+		 		<% if current_user.friend_requests.any? %>
+		 			<%= link_to "Requests", user_friend_requests_path(current_user), class: "navbar-item" %>
+		 		<% end %>
+			  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
 		  <% else %>
-		  <%= link_to "Sign in", new_user_session_path, class: "navbar-item" %>
-		  <%= link_to "Sign up", new_user_registration_path, class: "navbar-item" %>
+			  <%= link_to "Sign in", new_user_session_path, class: "navbar-item" %>
+			  <%= link_to "Sign up", new_user_registration_path, class: "navbar-item" %>
 		  <% end %>
 		</div>
 	</div>

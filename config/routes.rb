@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :users, only: [:index, :show] do
-  	resources :friend_requests, only: [:index, :destroy]
+  	resources :friend_requests, only: [:create, :index, :destroy]
   	resources :friends, only: [:create, :index]
   end
   resources :friend_requests, only: [:destroy]

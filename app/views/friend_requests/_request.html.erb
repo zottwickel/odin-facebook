@@ -1,0 +1,3 @@
+<li>
+		From: <%= User.find(request.friend_id).name %> | <%= link_to "accept request", @user.friends.create(request), method: :post, class: "button is-info" %>
+</li>

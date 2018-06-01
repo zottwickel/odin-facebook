@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% provide(title: @user.name) %>
+<section class="hero is-medium is-light is-bold">
+	<div class="hero-body">
+		<h1 class="title"><%= @user.name %></h1>
+		<h2 class="subtitle">
+				<%= link_to "Send Friend Request", "/users/#{@user.id}/friend_requests", method: :post, class: "button is-info is-small" %>
+		</h2>
+		<p>This will likely be a feed of posts someday.</p>
+	</div>
+</section>

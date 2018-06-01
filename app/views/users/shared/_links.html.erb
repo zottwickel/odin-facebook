@@ -1,6 +1,6 @@
 <div class="container"><br>
 	<%- if controller_name != 'sessions' %>
-	  <%= link_to "Log in", new_session_path(resource_name) %><br />
+	  <%= link_to "Log in", new_session_path(resource_name), class: "is-size-7" %><br />
 	<% end -%>
 
 	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>

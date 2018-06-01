@@ -3,19 +3,19 @@ class FriendRequestsController < ApplicationController
 	before_action :set_friend_request, except: [:index, :create]
 
 	def create
-		friend = User.find(params[:friend_id])
-		@friend_request = current_user.friend_requests.new(friend: friend)
-		if @friend_request.save
-			flash[:notice] = "friend request sent"
-			redirect_to root_url
+		@request = current_user.friend_requests.create(user_id: params[:user_id], friend_id: current_user.id)
+		if @request.save
+			flash[:notice] = "Friend request sent"
+			redirect_to user_path(current_user)
 		else
-			flash[:alert] = "couldn't send friend request"
+			flash[:alert] = "Could not send request"
+			redirect_to root_path
 		end
 	end
 
 	def index
-		@requests = FriendRequest.where(friend: current_user)
-		@sent = current_user.friend_requests
+		@user = User.find(params[:user_id])
+		@requests = @user.friend_requests.all
 	end
 
 	def destroy
