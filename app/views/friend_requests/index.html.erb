@@ -5,5 +5,8 @@
 		<ul>
 			<%= render @friend_requests %>
 		</ul>
+		<% unless @friend_requests.any? %>
+			<p class="subtitle">Looks like you have no requests at this time.</p>
+		<% end %>
 	</div>
 </section>
