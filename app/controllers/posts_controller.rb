@@ -9,13 +9,15 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def new
-	end
-
 	def create
-	end
-
-	def edit
+		@post = current_user.posts.create(title: params[:post][:title], body: params[:post][:body])
+		if @post.save
+			flash[:notice] = "post posted"
+			redirect_to posts_path
+		else
+			flash[:alert] = "couldn't post post"
+			redirect_to posts_path
+		end
 	end
 
 	def update
@@ -23,5 +25,4 @@ class PostsController < ApplicationController
 
 	def destroy
 	end
-
 end

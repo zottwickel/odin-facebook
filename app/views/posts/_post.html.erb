@@ -1,3 +1,18 @@
-<li>
-	post
+<li class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <%= post.title %>
+    </p>
+  </header>
+	<div class="card-content">
+    <div class="content">
+    	<%= post.body %>
+    </div>
+  </div>
+  <div class="card-content">
+  	<div class="content">
+    	Posted by: <%= link_to post.user.name, user_path(post.user), id: "namelink" %><br>
+    	Posted at: <%= post.created_at %>
+    </div>
+  </div>
 </li>
