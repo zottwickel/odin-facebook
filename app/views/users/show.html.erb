@@ -5,6 +5,8 @@
 		<h2 class="subtitle">
 				<%= link_to "Send Friend Request", "/users/#{@user.id}/friend_requests", method: :post, class: "button is-info is-small" %>
 		</h2>
-		<p>This will likely be a feed of posts someday.</p>
+		<ul>
+			<%= render @user.posts %>
+		</ul>
 	</div>
 </section>

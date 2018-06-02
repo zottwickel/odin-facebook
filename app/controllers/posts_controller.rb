@@ -1,12 +1,8 @@
 class PostsController < ApplicationController
 
 	def index
-		if user_signed_in?
-			@posts = current_user.posts
-			current_user.friendships.each do |friendship| 
-				@posts << friendship.friend.posts
-			end
-		end
+		@posts = Post.where("user_id = :user_id #{friend_ids}", user_id: current_user.id)
+
 	end
 
 	def create
@@ -24,5 +20,13 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+	end
+
+	private
+
+	def friend_ids
+		current_user.friends.each do |friend|
+			return "OR user_id = #{friend.id} "
+		end
 	end
 end
