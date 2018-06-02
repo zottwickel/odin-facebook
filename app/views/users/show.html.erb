@@ -10,7 +10,7 @@
 			<h2 class="subtitle">
 				<%= link_to "unfriend", friend_path(@user), method: :delete, data: { confirm: "are you sure?" }, class: "button is-danger is-small" %>
 			</h2>
-		<% elsif  FriendRequest.where("friend_id = :friend_id AND user_id = :user_id", { friend_id: @user.id, user_id: current_user.id} ).any? %>
+		<% elsif  FriendRequest.where("friend_id = :friend_id AND user_id = :user_id", { friend_id: current_user.id, user_id: @user.id} ).any? %>
 			<h2 class="subtitle">
 				<a class="button is-info is-small" disabled>friend request pending</a>
 			</h2>

@@ -25,8 +25,10 @@ class PostsController < ApplicationController
 	private
 
 	def friend_ids
-		current_user.friends.each do |friend|
-			return "OR user_id = #{friend.id} "
+		if current_user.friends.any?
+			current_user.friends.each do |friend|
+				return "OR user_id = #{friend.id} "
+			end
 		end
 	end
 end

@@ -5,6 +5,26 @@
 	font-weight: bold;
 }
 
+.section {
+    padding: 1rem;
+}
+
+.notification.is-danger {
+	margin: 0;
+}
+
+.message.is-success {
+	margin: 0;
+}
+
+.message.is-danger {
+	margin: 0;
+}
+
+#requests {
+	color: #fff;
+}
+
 @media screen and (min-width: 724px) {
     .left-field {
 		width: 38%;
