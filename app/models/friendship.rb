@@ -1,6 +1,7 @@
 class Friendship < ApplicationRecord
 	after_create :create_inverse_relationship
   after_destroy :destroy_inverse_relationship
+  default_scope { order(created_at: :desc) }
 
   belongs_to :user
   belongs_to :friend, class_name: 'User'

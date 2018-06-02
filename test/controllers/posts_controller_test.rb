@@ -10,9 +10,5 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 		@user.confirm
 	end
 
-	test "gets index" do
-		get posts_path
-		assert_response :success
-	end
 
 end

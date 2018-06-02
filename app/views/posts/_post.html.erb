@@ -15,4 +15,15 @@
     	Posted at: <%= post.created_at %>
     </div>
   </div>
+  <footer class="card-footer">
+    <div class="level">
+      <div class="level-left">
+        <% if current_user.id == post.user_id %>  
+          <%= button_to "delete post", "/posts/#{post.id}", method: :delete, class: "button is-small is-danger" %>
+        <% end %>
+        <%= button_to "like", "#", class: "button is-small is-success" %>
+        <%= button_to "comment", "#", class: "button is-small is-info" %>
+      </div>
+    </div>
+  </footer>
 </li>
