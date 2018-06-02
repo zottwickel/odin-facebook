@@ -5,9 +5,12 @@
 	font-weight: bold;
 }
 
-.left-field {
-	width: 38%;
+@media screen and (min-width: 724px) {
+    .left-field {
+		width: 38%;
+	}
 }
+
 
 .is-vertical-center {
   display: flex;

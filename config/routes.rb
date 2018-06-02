@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   end
   resources :friend_requests, only: [:destroy]
   resources :friends, only: [:destroy]
+
+  resources :posts, only: [:index, :create, :update, :destroy]
 end

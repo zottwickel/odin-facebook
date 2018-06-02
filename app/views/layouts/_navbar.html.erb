@@ -1,7 +1,7 @@
-<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+<nav class="navbar is-info" role="navigation">
 	<div class="navbar-brand">
   	<%= link_to "odinbook", root_path, id: "logo", class: "navbar-item" %>
-		<a role="button" class="navbar-burger has-dropdown" data-target="navMenu" aria-label="menu" aria-expanded="false">
+		<a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
 		  <span aria-hidden="true"></span>
 		  <span aria-hidden="true"></span>
 		  <span aria-hidden="true"></span>
@@ -12,7 +12,7 @@
 	  <div class="navbar-end">
 	  	<% if signed_in? %>
 		  	<%= link_to "All People", users_path, class: "navbar-item" %>
-			  <%= link_to "News Feed", root_path, class: "navbar-item" %>
+			  <%= link_to "News Feed", posts_path, class: "navbar-item" %>
 			  <%= link_to "Friends", user_friends_path(current_user), class: "navbar-item" %>
 		 		<%= link_to "Requests", user_friend_requests_path(current_user), class: "navbar-item" %>
 			  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
