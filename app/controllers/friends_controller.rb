@@ -18,6 +18,14 @@ class FriendsController < ApplicationController
 	end
 
 	def destroy
+		@friendship = Friendship.find_by(user_id: params[:id])
+		if @friendship.destroy
+			flash[:notice] = "Friendship deleted"
+			redirect_to users_path
+		else
+			flash[:notice] = "Unable to destroy friendship"
+			redirect_to root_path
+		end
 	end
 
 end
