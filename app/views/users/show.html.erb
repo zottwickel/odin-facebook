@@ -1,26 +1,27 @@
 <% provide(title: @user.name) %>
 <section class="hero is-light is-bold">
 	<div class="hero-body">
-		<h1 class="title"><%= @user.name %></h1>
-		<h2 class="subtitle"><%= @user.email %></h2>
+		<div class="section">
+			<%= gravatar_for(@user) %>
+			<h1 class="title"><%= @user.name %></h1>
+			<h2 class="subtitle"><%= @user.email %></h2>
+		</div>
 		<% if @user.friends.include?(current_user) %>
 			<h2 class="subtitle">
-				<a class="button is-info is-small" disabled>you're already friends</a>
-			</h2>
-			<h2 class="subtitle">
-				<%= link_to "unfriend", friend_path(@user), method: :delete, data: { confirm: "are you sure?" }, class: "button is-danger is-small" %>
+				<a class="button is-info" disabled>you're already friends</a>
+				<%= link_to "unfriend", friend_path(@user), method: :delete, data: { confirm: "are you sure?" }, class: "button is-danger" %>
 			</h2>
 		<% elsif  FriendRequest.where("friend_id = :friend_id AND user_id = :user_id", { friend_id: current_user.id, user_id: @user.id} ).any? %>
 			<h2 class="subtitle">
-				<a class="button is-info is-small" disabled>friend request pending</a>
+				<a class="button is-info" disabled>friend request pending</a>
 			</h2>
 		<% elsif current_user.email == @user.email %>
 			<h2 class="subtitle">
-		  	<a class="button is-info is-small" disabled>you can't friend yourself</a>
+		  	<a class="button is-info" disabled>you can't friend yourself</a>
 		  </h2>
 		<% else %>
 			<h2 class="subtitle">
-					<%= link_to "send Friend Request", "/users/#{@user.id}/friend_requests", method: :post, class: "button is-info is-small" %>
+					<%= link_to "send Friend Request", "/users/#{@user.id}/friend_requests", method: :post, class: "button is-info" %>
 			</h2>
 		<% end %>
 		<ul>
