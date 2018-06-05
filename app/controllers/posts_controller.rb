@@ -11,13 +11,24 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = current_user.posts.create(title: params["/post"][:title], body: params["/post"][:body])
-		if @post.save
-			flash[:notice] = "Post posted"
-			redirect_to posts_path
+		if params["/post"].nil?
+			@like = Like.new(user_id: params[:user_id], likeable_id: params[:likeable_id], likeable_type: params[:likeable_type])
+			if @like.save
+				flash[:notice] = "Post liked"
+				redirect_to request.referrer
+			else
+				flash[:alert] = "Unable to like post"
+				redirect_to reuqest.referrer
+			end
 		else
-			flash[:alert] = "Couldn't post post"
-			redirect_to posts_path
+			@post = current_user.posts.create(title: params["/post"][:title], body: params["/post"][:body])
+			if @post.save
+				flash[:notice] = "Post posted"
+				redirect_to posts_path
+			else
+				flash[:alert] = "Couldn't post post"
+				redirect_to posts_path
+			end
 		end
 	end
 	

@@ -12,7 +12,8 @@
   <div class="card-content">
   	<div class="content">
     	Posted by: <%= link_to post.user.name, user_path(post.user), id: "namelink" %><br>
-    	Posted at: <%= post.created_at.strftime("%l:%M%p %A, %B %d, %Y.") %>
+    	Posted at: <%= post.created_at.strftime("%l:%M%p %A, %B %d, %Y.") %><br>
+      Likes: <%= post.likes.count %>
     </div>
   </div>
 
@@ -30,7 +31,13 @@
       <div class="level-left">
             <%= f.submit "comment", class: "button is-small is-info" %>
         <% end %>
-        <%= button_to "like", "#", class: "button is-small is-success" %>
+        <% user_liked = false %>
+        <% post.likes.each { |like| user_liked = true if like.user_id == current_user.id } %>
+        <% if user_liked %>
+          <a class="button is-small is-success" disabled>liked</a>
+        <% else %>
+          <%= button_to "like", "#", params: { user_id: current_user.id, likeable_id: post.id, likeable_type: "Post" }, class: "button is-small is-success" %>
+        <% end %>
         <% if current_user.id == post.user_id %>  
           <%= button_to "delete post", "/posts/#{post.id}", method: :delete, class: "button is-small is-danger" %>
         <% end %>
