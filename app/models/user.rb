@@ -1,13 +1,13 @@
 class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 	has_many :friend_requests, dependent: :destroy
   has_many :pending_friends, through: :friend_requests, source: :friend
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  #This devise section includes all of the "bells and whistles" so to speak: (except :omniauthable for now)
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable

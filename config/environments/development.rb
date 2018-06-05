@@ -26,6 +26,11 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Time zone for development:
+  config.time_zonte = "Mountain Time (US & Canada)"
+
+
+
   # Don't care if the mailer can't send.
 
   config.action_mailer.delivery_method = :letter_opener

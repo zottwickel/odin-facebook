@@ -1,16 +1,16 @@
 <div class="left-field">
-	<%= form_for :post, method: :post do |f| %>
+	<%= form_for "/post", method: :post do |f| %>
 
 		<div class="field">
 			<%= f.label :title, class: "label" %>
 			<div class="control">
-				<%= f.text_field :title, placeholder: "e.g. Trump is the worst", class: "input is-info" %>
+				<%= f.text_field :title, placeholder: "Your Title here...", class: "input is-info" %>
 			</div>
 		</div>
 
 		<div class="field">
 			<div class="control">
-				<%= f.text_area :body, placeholder: "e.g. Trump is the worst because he tweets stuff instead of running the country", class: "textarea is-info" %>
+				<%= f.text_area :body, placeholder: "Your post body goes here, it can be about any gibberish you think you want to put here, such as politics, religion, sex, drugs, violence. Just no nazi stuff.", class: "textarea is-info" %>
 			</div>
 		</div>
 
@@ -18,5 +18,5 @@
 			<%= f.submit "post", class: "button is-info" %>
 		</div>
 	<% end %>
-</div
+</div>
 

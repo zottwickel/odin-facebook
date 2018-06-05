@@ -19,19 +19,4 @@ class FriendshipTest < ActiveSupport::TestCase
 	test "can make new friendships" do
 		assert Friendship.new(user_id: @userone.id, friend_id: @usertwo.id)
 	end
-
-	test "can turn a request into a friendship" do
-		@request.accept
-		assert @userone.friendships.first
-	end
-
-	test "accepting a request deletes it" do
-		@request.accept
-		assert_not @userone.friend_requests.find_by(user_id: @userone.id, friend_id: @usertwo.id)
-	end
-
-	test "reciprical freindship creation" do
-		@request.accept
-		assert @usertwo.friendships.find_by(user_id: @usertwo.id)
-	end
 end

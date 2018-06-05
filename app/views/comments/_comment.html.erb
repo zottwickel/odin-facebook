@@ -1,0 +1,7 @@
+<li>
+	<div class= "message">
+		<div class="message-body">
+			<%= comment.content %><br>
+			By <%= User.find(comment.user_id).name %> at <%= comment.created_at.strftime("%l:%M%p, %m/%d/%Y") %>
+		</div>
+</li>

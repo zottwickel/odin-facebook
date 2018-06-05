@@ -8,11 +8,10 @@ class PostsController < ApplicationController
 			end
 		end
 		@posts = Post.where("user_id = :user_id #{friend_ids}", user_id: current_user.id)
-
 	end
 
 	def create
-		@post = current_user.posts.create(title: params[:post][:title], body: params[:post][:body])
+		@post = current_user.posts.create(title: params["/post"][:title], body: params["/post"][:body])
 		if @post.save
 			flash[:notice] = "Post posted"
 			redirect_to posts_path
@@ -21,10 +20,7 @@ class PostsController < ApplicationController
 			redirect_to posts_path
 		end
 	end
-
-	def update
-	end
-
+	
 	def destroy
 		@post = Post.where(id: params[:id])
 		if @post.destroy(params[:id])

@@ -19,9 +19,5 @@ class FriendRequestTest < ActiveSupport::TestCase
 		assert @userone.friend_requests.new(friend_id: @usertwo.id)
 	end
 
-	test "can accept friend requests" do
-		request = @userone.friend_requests.new(friend_id: @usertwo.id)
-		assert request.accept
-	end
 
 end

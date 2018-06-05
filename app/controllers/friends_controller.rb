@@ -6,7 +6,7 @@ class FriendsController < ApplicationController
 			flash[:notice] = "Friendship accepted"
 			request = FriendRequest.find_by(user_id: current_user.id, friend_id: params[:friend_id])
 			request.destroy
-			redirect_to user_path(params[:user_id])
+			redirect_to user_path(params[:friend_id])
 		else
 			flash[:alert] = "Could not accept request"
 			redirect_to root_path
