@@ -25,7 +25,8 @@
 			</h2>
 		<% end %>
 		<ul>
-			<%= render @user.posts %>
+			<%= render @posts %>
 		</ul>
+			<%= will_paginate @posts, renderer: BulmaPagination::Rails %>
 	</div>
 </section>

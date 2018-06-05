@@ -6,5 +6,6 @@
 		<ul class="section">
 			<%= render @posts %>
 		</ul>
+		<%= will_paginate @posts, renderer: BulmaPagination::Rails %>
 	</div>
 </section>

@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 			end
 		end
 		@posts = Post.where("user_id = :user_id #{friend_ids}", user_id: current_user.id)
+		@posts = @posts.page(params[:page]).per_page(10)
 	end
 
 	def create

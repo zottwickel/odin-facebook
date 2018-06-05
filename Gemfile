@@ -32,6 +32,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4'
 # Use Jquery-rails for jQuery goodness
 gem 'jquery-rails', '>= 4.3.1'
+# Use will_paginate for pagination
+gem 'will_paginate'
+# with helper gem for bulma
+gem 'will_paginate-bulma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
