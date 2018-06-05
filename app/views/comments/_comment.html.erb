@@ -3,5 +3,15 @@
 		<div class="message-body">
 			<%= comment.content %><br>
 			By <%= User.find(comment.user_id).name %> at <%= comment.created_at.strftime("%l:%M%p, %m/%d/%Y") %>
+			<% if comment.comments.any? %>
+				<ul>
+					<%= render comment.comments.all %>
+				</ul>
+			<% end %>
+			<%= form_for :comment, url: "/comments", method: :post do |f| %>
+		    <%= f.text_field :content, placeholder: "Your reply here...", class: "input has-addons is-info is-small left-field" %><%= f.submit "reply", class: "button is-info is-small" %><br>
+		    <%= f.hidden_field :commentable_id, value: comment.id %>
+		    <%= f.hidden_field :commentable_type, value: "Comment" %>
+		  <% end %>
 		</div>
 </li>
