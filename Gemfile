@@ -40,6 +40,8 @@ gem 'will_paginate'
 gem 'will_paginate-bulma'
 # Use figaro for keeping those keys a secret
 gem 'figaro'
+# Use sendgrid for sending emails in production
+gem 'sendgrid-ruby'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
