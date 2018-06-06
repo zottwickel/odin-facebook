@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #This (and the corresponding actions in the controllers and views) needs a real namespace refactor
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'static_pages#home'
 

@@ -30,12 +30,16 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Use Devise for streamlined authentications
 gem 'devise', '~> 4'
+# Use Omniauth-facebook for easy in's
+gem 'omniauth-facebook'
 # Use Jquery-rails for jQuery goodness
 gem 'jquery-rails', '>= 4.3.1'
 # Use will_paginate for pagination
 gem 'will_paginate'
 # with helper gem for bulma
 gem 'will_paginate-bulma'
+# Use figaro for keeping those keys a secret
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

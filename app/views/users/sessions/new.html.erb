@@ -28,7 +28,8 @@
       <div class="control">
         <%= f.submit "Log in", class: "button is-info" %>
       </div>
-    <% end %>
+    <% end %><br>
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "button is-info" %>
     <%= render "users/shared/links" %>
   </div>
 </section>
