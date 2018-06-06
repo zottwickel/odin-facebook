@@ -14,7 +14,7 @@ class FriendsController < ApplicationController
 	end
 
 	def index
-		@friends = current_user.friendships.all
+		@friends = current_user.friendships.all.page(params[:page]).per_page(10)
 	end
 
 	def destroy

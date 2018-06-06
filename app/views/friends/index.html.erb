@@ -5,6 +5,7 @@
 		<ul>
 			<%= render @friends %>
 		</ul>
+		<%= will_paginate @friends, renderer: BulmaPagination::Rails %>
 		<% if current_user.friends.count == 0 %>
 			<p class="subtitle">Looks like you don't have any friends yet</p>
 		<% end %>
