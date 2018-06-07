@@ -10,6 +10,8 @@
 				</ul>
 			<% end %>
 			<%= form_for :comment, url: "/comments", method: :post do |f| %>
+				<%= f.hidden_field :commentable_id, value: comment.id %>
+		    <%= f.hidden_field :commentable_type, value: "Comment" %>
 		    <%= f.text_field :content, placeholder: "Your reply here...", class: "input has-addons is-info is-small left-field" %>
 		    <%= f.submit "reply", class: "button is-info is-small" %>
 		    <% user_liked = false %>
@@ -19,8 +21,6 @@
 		    <% else %>
 		    	<%= button_to "like", "#", params: { user_id: current_user.id, likeable_id: comment.id, likeable_type: "Comment" }, class: "button is-small is-success" %><br>
 		  	<% end %>
-		    <%= f.hidden_field :commentable_id, value: comment.id %>
-		    <%= f.hidden_field :commentable_type, value: "Comment" %>
 		  <% end %>
 		</div>
 </li>

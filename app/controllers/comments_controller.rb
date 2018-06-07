@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
 	def create
-		if params[:comment][:commentable_id].nil?
+		if params[:comment][:content] == ""
 			@like = Like.new(user_id: params[:user_id], likeable_id: params[:likeable_id], likeable_type: params[:likeable_type])
 			if @like.save
 				flash[:notice] = "Comment liked"
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
 	private
 
 	def comment_params
-		params.require(:comment).permit(:commentable_id, :commentable_type, :content)
+		params.require(:comment).permit(:content, :user_id, :commentable_id, :commentable_type)
 	end
 
 end
