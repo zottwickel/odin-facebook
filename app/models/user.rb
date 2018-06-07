@@ -11,6 +11,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: %i[facebook]
 
+  default_scope { order(created_at: :asc) }
+
   before_save { self.email.downcase! }
 
   validates :name, presence: true,
