@@ -10,14 +10,15 @@ class CommentsController < ApplicationController
 				flash[:alert] = "Couldn't make comment"
 				redirect_to request.referrer
 			end
-		end
-		@comment = current_user.comments.create(comment_params)
-		if @comment.save
-			flash[:notice] = "Comment made"
-			redirect_to request.referrer
 		else
-			flash[:alert] = "Couldn't make comment"
-			redirect_to request.referrer
+			@comment = current_user.comments.create(comment_params)
+			if @comment.save
+				flash[:notice] = "Comment made"
+				redirect_to request.referrer
+			else
+				flash[:alert] = "Couldn't make comment"
+				redirect_to request.referrer
+			end
 		end
 	end
 
