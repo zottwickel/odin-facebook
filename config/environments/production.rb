@@ -73,6 +73,7 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
   config.action_dispatch.default_headers.merge!('Cache-Control' => 'no-store, no-cache')
+  config.action_controller.per_form_csrf_tokens = true
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new

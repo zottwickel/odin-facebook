@@ -30,6 +30,7 @@ Rails.application.configure do
   config.time_zonte = "Mountain Time (US & Canada)"
 
   config.action_dispatch.default_headers.merge!('Cache-Control' => 'no-store, no-cache')
+  config.action_controller.per_form_csrf_tokens = true
 
 
 

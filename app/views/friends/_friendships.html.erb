@@ -3,7 +3,7 @@
 		<div class="is-vertical-center">
 			<%= gravatar_for(friend) %>
 			<div class="section">
-				<%= link_to friend.name, friend, id: "namelink" %> | <%= friend.email %>
+				<%= link_to friend.name, user(friend), id: "namelink" %> | <%= friend.email %>
 			</div>
 		</div>
 	</div>
